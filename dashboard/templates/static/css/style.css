@@ -1,42 +1,36 @@
 #page-container {
- 
-   
-	width: 960px;
-	margin: auto;
+    width: 960px;
+    margin: auto;
+    background: #ddddff;
+    padding: 20px;
 }
-	
-	
-#main-nav{
- 
-    padding-top: 25px;
 
-	 height: 90px;
+
+#main-nav{
+    padding-top: 25px;
+    height: 90px;
 }
 
 
 #header{
- 
     background: white;
-	width: 960px;
+    width: 960px;
     margin: center;
-
-	height: 150px;
+    height: 150px;
 }
 
 
 #content{
-	
-	
-	 margin-top: 10px;
-	  width: 960px;
-    
+    margin-top: 10px;
+    width: 960px;
 }
 
 
 #footer{
-
     clear: both;
-   background: white;
-	height: 100px;;
-	border-radius: 10px;
+    margin: auto;
+    background: #777799;
+    height: 60px;;
+    //border-radius: 10px;
+    width: 1000px;
 }
