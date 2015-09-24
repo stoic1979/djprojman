@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        {% block head %}{% endblock %}
+        <link rel="stylesheet" type="text/css" href={% static "css/bootstrap.css" %}>
+        <link rel="stylesheet" type="text/css" href={% static "css/style.css" %}>
+    </head>
+    <body bgcolor="#ccddcc">
+        <div id="page-container">
+
+            {% if request.user %}
+            Welcome: <b>{{ request.user }}</b> <br>
+            {% endif %}
+            <br>
+            <ul>
+                <li class="btn btn-inverse"><a href="/">HOME</a></li>
+                <li class="btn btn-inverse"><a href="/add_project/">ADD PROJECT</a></li>
+                <li class="btn btn-inverse"><a href="/progress/">PROGRESS</a></li>
+                <li class="btn btn-inverse"><a href="/help/">HELP</a></li>
+
+                {% if request.user %}
+                <li class="btn btn-inverse"><a href="/logout/">LOGOUT</a></li>
+                {% else %}
+                <li class="btn btn-inverse"><a href="/login/">LOGIN</a></li>
+                {% endif %}
+            </ul>
+            <hr>
+            {% block body %}{% endblock %}
+            <center>Under development by weavebytes</center>
+        </div>
+    </body>
+</html>

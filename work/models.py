@@ -1,5 +1,20 @@
 from django.db import models
 
+
+class Project(models.Model):
+    """
+    project model for weavebytes
+    """
+    title        = models.CharField(max_length=64)
+    description  = models.CharField(max_length=1024)
+    start        = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        """
+        function returns unicode/string representation of a project model
+        """
+        return "Project:: %s" % self.title
+
 class Employee(models.Model):
     """
     employee model for weavebytes

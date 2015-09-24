@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>DjProMan</title>
+{% endblock %}
+
+{% block body %}
+<h5> ADD PROJECT </h5><hr>
+<form action="/save_project/" method="post">
+    <table>
+        <tr>
+            <td>
+                Title: 
+            </td>
+            <td>
+                <input type="text" name="title"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Descripton: 
+            </td>
+            <td>
+                <input type="text" name="description"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="Submit" value="Save">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br> <br> <br> <br> <br> <br> <br>
+
+{% endblock %}
