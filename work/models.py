@@ -1,5 +1,8 @@
 from django.db import models
 
+#
+# A project has tasks, and a task is assigned to an worker
+#
 
 class Project(models.Model):
     """
@@ -15,9 +18,9 @@ class Project(models.Model):
         """
         return "Project:: %s" % self.title
 
-class Employee(models.Model):
+class Worker(models.Model):
     """
-    employee model for weavebytes
+    worker model for weavebytes
     """
     username     = models.CharField(max_length=45)
     phone_number = models.CharField(max_length=45)
@@ -29,4 +32,4 @@ class Employee(models.Model):
         """
         function returns unicode string representation of model
         """
-        return "Weavebytes Employee:: %s" % self.username
+        return "Weavebytes Worker:: %s" % self.username
