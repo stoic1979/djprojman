@@ -3,7 +3,7 @@ A project management tool in django. Indents to be a simple quick tool for manai
 Under R&D by weavebytes.
 
 
-Features
+features
 --------
 
 * Each project will have tasks and workers to handle them. 
@@ -13,7 +13,7 @@ Features
 * There is a UI to add/edit/manage comments.
 
 
-ToDo
+todo
 --------
 * Add RESTful APIs for mobile apps to use djproman.
 * Create template system to set desired theme.
