@@ -2,3 +2,9 @@
 .project
 .pydevproject
 .settings
+*.log
+*.temp
+*.*~
+*.db
+localsettings.py
+Thumbs.db
