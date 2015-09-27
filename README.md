@@ -1,5 +1,7 @@
 # djprojman
-A project management tool in django. Indents to be a simple quick tool for manaing projects, tasks and team, most suitable for small companies.
+A project management tool in django. 
+Intents to be a simple quick tool for managing projects, tasks and team, most suitable for small companies.
+
 Under R&D by weavebytes.
 
 
@@ -18,3 +20,4 @@ todo
 
 * Add RESTful APIs for mobile apps to use djproman.
 * Create template system to set desired theme.
+* Create graphs to show progress of projects.
