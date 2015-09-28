@@ -22,7 +22,7 @@ todo
 * Create template system to set desired theme.
 * Create graphs to show progress of projects.
 
-tests
+unit tests
 --------
 
 * Run tests as:-

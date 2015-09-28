@@ -75,8 +75,14 @@ def help(request):
     """
     show help page
     """
-    #return render_to_response('add_project.html')
-    return HttpResponse('Help Page')
+    return render_to_response('help.html')
+
+@login_required
+def progress(request):
+    """
+    show progress page
+    """
+    return render_to_response('progress.html')
 
 @csrf_exempt
 @login_required
@@ -104,3 +110,4 @@ def save_project(request):
         return HttpResponse(" Failed To Save Project !")
 
     return HttpResponse(" Project Saved !")
+

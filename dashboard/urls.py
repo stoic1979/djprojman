@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^logout/$', 'work.views.logout_page', name='logout_page'),
     url(r'^accounts/logout/$', 'work.views.logout_page', name='logout_page'),
     url(r'^accounts/login/$', 'work.views.login_page', name='login_page'),
+    url(r'^progress/$', 'work.views.progress', name='progress'),
 ]
