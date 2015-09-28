@@ -89,9 +89,10 @@ def save_project(request):
     """
     try:
         title       = request.POST['title']
+        shortname   = request.POST["shortname"]
         description = request.POST["description"]
 
-        project = Project(title=title, description=description)
+        project = Project(title=title, shortname=shortname, description=description, owner=request.user)
         project.save()
     except:
         traceback.print_exc()

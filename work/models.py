@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+import datetime
 
 #
 # A project has tasks, and a task is assigned to an worker
@@ -15,8 +16,9 @@ class Project(models.Model):
     shortname    = models.CharField(max_length=20, unique=True)
     description  = models.CharField(max_length=1024)
     owner        = models.ForeignKey(User)
-    start_date   = models.DateField()
+    start_date   = models.DateField(default=datetime.date.today)
     end_date     = models.DateField(null=True)
+    is_active    = models.BooleanField(default=True)
 
     def __unicode__(self):
         """
