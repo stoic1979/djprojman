@@ -21,3 +21,9 @@ todo
 * Add RESTful APIs for mobile apps to use djproman.
 * Create template system to set desired theme.
 * Create graphs to show progress of projects.
+
+tests
+--------
+
+* Run tests as:-
+ $ python manage.py test --keepdb
