@@ -10,8 +10,10 @@
     <body bgcolor="#ccddcc">
         <div id="page-container">
 
-            {% if request.user %}
-            Welcome: <b>{{ request.user }}</b> <br>
+            {% if request and not request.user.is_anonymous %}
+            Welcome: <b> {{ request.user }}</b> <br>
+            {% else %}
+            Welcome: <b>Guest</b> <br>
             {% endif %}
             <br>
             <ul>
@@ -20,7 +22,7 @@
                 <li class="btn btn-inverse"><a href="/progress/">PROGRESS</a></li>
                 <li class="btn btn-inverse"><a href="/help/">HELP</a></li>
 
-                {% if request.user %}
+                {% if request and not request.user.is_anonymous %}
                 <li class="btn btn-inverse"><a href="/logout/">LOGOUT</a></li>
                 {% else %}
                 <li class="btn btn-inverse"><a href="/login/">LOGIN</a></li>

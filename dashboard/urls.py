@@ -22,4 +22,9 @@ urlpatterns = [
     url(r'^$', 'work.views.home', name='home'),
     url(r'^add_project/$', 'work.views.add_project', name='add_project'),
     url(r'^save_project/$', 'work.views.save_project', name='save_project'),
+    url(r'^help/$', 'work.views.help', name='help'),
+    url(r'^login/$', 'work.views.login_page', name='login_page'),
+    url(r'^logout/$', 'work.views.logout_page', name='logout_page'),
+    url(r'^accounts/logout/$', 'work.views.logout_page', name='logout_page'),
+    url(r'^accounts/login/$', 'work.views.login_page', name='login_page'),
 ]

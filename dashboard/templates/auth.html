@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% comment %}
+
+Main page to authenticate users.
+
+{% endcomment %}
+
+{% block head %}
+    <title>WeaveBytes | Login</title>
+{% endblock %}
+
+{% block body %}
+        <h5>Login</h5>
+
+    <section>
+        {% if form.errors %}
+            <p style="color:red">Your username and password didn't match, please try again.</p>
+        {% endif %}
+
+        <p style="color:red"> {{ state }} </p>
+        <form method="post" action=".">{% csrf_token %}
+            <p>
+                <label for="id_username">Username:</label>
+                {{ form.username }}
+            </p>
+            <p>
+                <label for="id_password">Password:</label>
+                {{ form.password }}
+            </p>
+            {% if next %}
+                <input type="hidden" name="next" value="{{ next }}" />
+            {% else %}
+                <input type="hidden" name="next" value="/" />
+            {% endif %}
+                <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+    </section>
+{% endblock %}

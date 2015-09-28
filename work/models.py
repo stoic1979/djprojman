@@ -1,9 +1,10 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 #
 # A project has tasks, and a task is assigned to an worker
 # 
-# Company will have serveral projects to be managed
+# Company will have several projects to be managed
 #
 
 class Project(models.Model):
@@ -11,8 +12,11 @@ class Project(models.Model):
     project model for the company
     """
     title        = models.CharField(max_length=64)
+    shortname    = models.CharField(max_length=20, unique=True)
     description  = models.CharField(max_length=1024)
+    owner        = models.ForeignKey(User)
     start_date   = models.DateField()
+    end_date     = models.DateField(null=True)
 
     def __unicode__(self):
         """
@@ -20,32 +24,16 @@ class Project(models.Model):
         """
         return "Project:: %s" % self.title
 
-class Worker(models.Model):
-    """
-    worker model for the company
-    """
-    username     = models.CharField(max_length=45)
-    phone_number = models.CharField(max_length=45)
-    email        = models.CharField(max_length=45)
-    password     = models.CharField(max_length=45)
-    last_login   = models.DateTimeField()
-
-    def __unicode__(self):
-        """
-        function returns unicode representation of a worker
-        """
-        return "Worker:: %s" % self.username
-
 class Task(models.Model):
     """
     task model for the company
     """
     title       = models.CharField(max_length = 64)
     description = models.TextField(null=True, blank=True)
-    project     = models.ForeignKey('Project')
+    project     = models.ForeignKey(Project)
     start_date  = models.DateField()
     end_date    = models.DateField()
-    worker      = models.ForeignKey('Worker', null=True)
+    worker      = models.ForeignKey(User, null=True)
     completed   = models.BooleanField(default=False)
 	
     def __unicode__(self):
@@ -66,9 +54,9 @@ class Comment(models.Model):
     """
     title       = models.CharField(max_length = 64)
     description = models.TextField(null=True, blank=True)
-    task        = models.ForeignKey('Task')
+    task        = models.ForeignKey(Task)
     write_date  = models.DateField()
-    worker      = models.ForeignKey('Worker', null=True)
+    worker      = models.ForeignKey(User, null=True)
     screenshot  = models.TextField(null=True, blank=True)
 	
     def __unicode__(self):
