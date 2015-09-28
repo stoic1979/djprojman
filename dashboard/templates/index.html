@@ -8,8 +8,22 @@
     <h4> PROJECT MANAGEMENT SYSTEM </h4><hr>
  
     <section>
-    <p>Project Management System to manage your projects, tasks and team.</p>
+    <p>Projects Under Development</p>
     </section>
+    <table border="1" cellspacing="5" cellpadding="5" width="100%">
+        <tr>
+            <td><b>#</b></td>
+            <td><b>Project</b></td>
+            <td><b>Start Date</b></td>
+        </tr>
+        {% for project in projects %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ project.title }}</td>
+            <td>{{ project.start_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 
     <br> <br> <br> <br> <br> <br> <br>
 

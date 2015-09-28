@@ -16,7 +16,12 @@ def home(request):
     """
     home page view for the website
     """
-    return render_to_response('index.html', {'request':request})
+    projects = Project.objects.all()
+    for project in projects:
+        print project
+
+    c = {'projects': projects, 'request': request}
+    return render_to_response('index.html', c)
 
 def login_page(request):
     """
