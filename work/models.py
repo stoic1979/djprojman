@@ -24,7 +24,7 @@ class Project(models.Model):
         """
         function returns unicode representation of a project
         """
-        return "Project:: %s" % self.title
+        return self.title
 
 class Task(models.Model):
     """
@@ -42,7 +42,7 @@ class Task(models.Model):
 	    """
 	    function returns unicode representaion of a task
 	    """
-	    return "Task:: %s" % self.name
+	    return self.title
 
 class Comment(models.Model):
     """
@@ -65,5 +65,5 @@ class Comment(models.Model):
 	    """
 	    function returns unicode representaion of a comment
 	    """
-	    return "Comment:: %s" % self.comment
+	    return self.title
 
