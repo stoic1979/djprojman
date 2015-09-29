@@ -7,7 +7,7 @@ from work.models import Project
 today_date = datetime.date.today()
 today_str  = str(today_date)
 
-class ProjectTests(TestCase):
+class ProjectTestCase(TestCase):
 
     user    = None
     project = None
@@ -23,7 +23,7 @@ class ProjectTests(TestCase):
         self.project = Project.objects.create(title="Dummy Project", shortname="DP", description="This is a dummy project", owner=self.user)
         print "Project created"
 
-    def testRequiredFields(self):
+    def test_required_fields(self):
         """
         sanity tests to check that required fields are really required
         """
@@ -51,7 +51,7 @@ class ProjectTests(TestCase):
         project.owner = self.user
         project.save()
 
-    def testProjectTitle(self):
+    def test_project_title(self):
         """
         test that project title is not empty
         """
@@ -61,7 +61,7 @@ class ProjectTests(TestCase):
         project.title = 'Test Project'
         project.save()
 
-    def testShortNameUnique(self):
+    def test_short_name_unique(self):
         """
         in models we have declared that short name is unique
 
