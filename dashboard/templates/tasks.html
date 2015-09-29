@@ -10,15 +10,15 @@
 <section>
 <p>Projects Under Development</p>
 </section>
-<br> <a href="/add_project/"> <button type="button" class="btn btn-primary">ADD PROJECT</button></a><br><br>
+<br> <a href="/add_task/"> <button type="button" class="btn btn-primary">ADD TASK</button></a><br><br>
 <table border="1" cellspacing="5" cellpadding="5" width="100%">
     <tr>
         <td><b>#</b></td>
-        <td><b>Project</b></td>
+        <td><b>Task</b></td>
         <td><b>Created By</b></td>
         <td><b>Start Date</b></td>
     </tr>
-    {% for project in projects %}
+    {% for task in tasks %}
     <tr>
         <td>{{ forloop.counter }}</td>
         <td>{{ project.title }}</td>

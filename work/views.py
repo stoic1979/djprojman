@@ -92,6 +92,15 @@ def add_project(request):
     """
     return render_to_response('add_project.html', {'request':request})
 
+@login_required
+def tasks(request):
+    """
+    show page for adding a project
+    """
+    # TODO
+    # pass task in dict to template !
+    return render_to_response('tasks.html', {'request':request})
+
 @csrf_exempt
 @login_required
 def save_project(request):
@@ -109,5 +118,5 @@ def save_project(request):
         traceback.print_exc()
         return HttpResponse(" Failed To Save Project !")
 
-    return HttpResponse(" Project Saved !")
+    return HttpResponseRedirect('/', {'request':request})
 

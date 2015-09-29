@@ -21,6 +21,7 @@ urlpatterns = [
 
     url(r'^$', 'work.views.home', name='home'),
     url(r'^add_project/$', 'work.views.add_project', name='add_project'),
+    url(r'^tasks/$', 'work.views.tasks', name='tasks'),
     url(r'^save_project/$', 'work.views.save_project', name='save_project'),
     url(r'^help/$', 'work.views.help', name='help'),
     url(r'^login/$', 'work.views.login_page', name='login_page'),

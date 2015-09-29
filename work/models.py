@@ -33,8 +33,8 @@ class Task(models.Model):
     title       = models.CharField(max_length = 64)
     description = models.TextField(null=True, blank=True)
     project     = models.ForeignKey(Project)
-    start_date  = models.DateField()
-    end_date    = models.DateField()
+    start_date  = models.DateField(default=datetime.date.today)
+    end_date    = models.DateField(null=True)
     worker      = models.ForeignKey(User, null=True)
     completed   = models.BooleanField(default=False)
 	
