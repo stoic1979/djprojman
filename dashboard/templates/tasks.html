@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block body %}
-<h4> PROJECT MANAGEMENT SYSTEM </h4><hr>
+<h4>PROJECT: {{ project.title }} </h4><hr>
 
 <section>
-<p>Projects Under Development</p>
+<p>Total tasks: {{ project.get_tasks.count }}</p>
 </section>
 <br> <a href="/add_task/"> <button type="button" class="btn btn-primary">ADD TASK</button></a><br><br>
 <table border="1" cellspacing="5" cellpadding="5" width="100%">
@@ -21,7 +21,7 @@
     {% for task in tasks %}
     <tr>
         <td>{{ forloop.counter }}</td>
-        <td>{{ task.title }}</td>
+        <td><a href="/task_detail/{{ task.id }}">{{ task.title }}</a></td>
         <td>{{ task.start_date }}</td>
         <td>{{ task.worker }}</td>
     </tr>
@@ -31,3 +31,4 @@
 <br> <br> <br> <br> <br> <br> <br>
 
 {% endblock %}
+
