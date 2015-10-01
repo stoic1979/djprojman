@@ -15,14 +15,15 @@
     <tr>
         <td><b>#</b></td>
         <td><b>Task</b></td>
-        <td><b>Created By</b></td>
         <td><b>Start Date</b></td>
+        <td><b>Worker</b></td>
     </tr>
     {% for task in tasks %}
     <tr>
         <td>{{ forloop.counter }}</td>
         <td>{{ task.title }}</td>
         <td>{{ task.start_date }}</td>
+        <td>{{ task.worker }}</td>
     </tr>
     {% endfor %}
 </table>
