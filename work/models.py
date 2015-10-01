@@ -45,10 +45,16 @@ class Task(models.Model):
     completed   = models.BooleanField(default=False)
 	
     def __unicode__(self):
-	    """
-	    function returns unicode representaion of a task
-	    """
-	    return self.title
+	"""
+	function returns unicode representaion of a task
+	"""
+	return self.title
+
+    def get_comments(self):
+        """
+        function get all comments belonging to this task
+        """
+        return Comment.objects.filter(task=self)
 
 class Comment(models.Model):
     """
