@@ -1,8 +1,8 @@
 #page-container {
-    width: 960px;
+    width: 1200px;
     margin: auto;
     background: #ddddff;
-    padding: 20px;
+    padding: 10px;
 }
 
 
@@ -31,6 +31,6 @@
     margin: auto;
     background: #777799;
     height: 60px;;
-    //border-radius: 10px;
-    width: 1000px;
+    border-radius: 10px;
+    width: 1180px;
 }
