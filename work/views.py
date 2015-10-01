@@ -128,3 +128,12 @@ def project(request, project_id):
     project = Project.objects.get(id=project_id)
     c = {'project': project, 'tasks': project.get_tasks()}
     return render_to_response('tasks.html', c)
+
+@login_required
+def task_detail(request, task_id):
+    """
+    show task details
+    """
+    task = Task.objects.get(id=task_id)
+    c = {'task': task, 'comments': task.get_comments()}
+    return render_to_response('task_detail.html', c)

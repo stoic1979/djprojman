@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>DjProMan - Home</title>
+{% endblock %}
+
+{% block body %}
+<h4> Task: {{ task.title }} </h4><hr>
+
+<section>
+<p><b>Description:</b><br>{{ task.description }}</p>
+</section>
+<table border="1" cellspacing="5" cellpadding="5" width="100%">
+    <tr>
+        <td><b>#</b></td>
+        <td><b>Comment</b></td>
+        <td><b>Worker</b></td>
+    </tr>
+    {% for comment in comments %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ comment.title }}</td>
+        <td>{{ comment.worker }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br> <br> <br> <br> <br> <br> <br>
+
+{% endblock %}
+
