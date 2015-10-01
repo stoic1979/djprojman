@@ -26,6 +26,12 @@ class Project(models.Model):
         """
         return self.title
 
+    def get_tasks(self):
+        """
+        function get all tasks belonging to this project
+        """
+        return Task.objects.filter(project=self)
+
 class Task(models.Model):
     """
     task model for the company

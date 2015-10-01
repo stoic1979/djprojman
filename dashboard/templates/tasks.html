@@ -21,9 +21,8 @@
     {% for task in tasks %}
     <tr>
         <td>{{ forloop.counter }}</td>
-        <td>{{ project.title }}</td>
-        <td>{{ project.owner }}</td>
-        <td>{{ project.start_date }}</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.start_date }}</td>
     </tr>
     {% endfor %}
 </table>

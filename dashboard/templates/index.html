@@ -21,7 +21,7 @@
     {% for project in projects %}
     <tr>
         <td>{{ forloop.counter }}</td>
-        <td>{{ project.title }}</td>
+        <td><a href="/project/{{ project.id }}">{{ project.title }}</a></td>
         <td>{{ project.owner }}</td>
         <td>{{ project.start_date }}</td>
     </tr>

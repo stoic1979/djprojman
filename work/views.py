@@ -120,3 +120,11 @@ def save_project(request):
 
     return HttpResponseRedirect('/', {'request':request})
 
+@login_required
+def project(request, project_id):
+    """
+    get all tasks for given project
+    """
+    project = Project.objects.get(id=project_id)
+    c = {'project': project, 'tasks': project.get_tasks()}
+    return render_to_response('tasks.html', c)
