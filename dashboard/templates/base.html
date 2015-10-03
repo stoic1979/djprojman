@@ -23,7 +23,9 @@
                 <li class="btn btn-inverse"><a href="/">PROJECTS</a></li>
                 <li class="btn btn-inverse"><a href="/tasks/">TASKS</a></li>
                 <li class="btn btn-inverse"><a href="/progress/">PROGRESS</a></li>
-                <li class="btn btn-inverse"><a href="/help/">HELP</a></li>
+                <li class="btn btn-inverse">
+                <a class="btn btn-inverse" href="#" data-toggle="modal" data-target="#HelpModal">HELP</a>
+                </li>
 
                 {% if request and not request.user.is_anonymous %}
                 <li class="btn btn-inverse"><a href="/logout/">LOGOUT</a></li>
@@ -39,5 +41,43 @@
             <center><br><p>Under development by weavebytes</p></center>
         </div>
 
+        <!-- Help Information Popup starts here -->
+
+        <div class="modal fade" id="HelpModal" tabindex="-1" 
+            role="dialog" aria-labelledby="helpModalLabel"     aria-hidden="true">
+            <div class="modal-dialog">      
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" 
+                            data-dismiss="modal">
+                            <span aria-hidden="true">&times;
+                                </span><span class="sr-only">
+                                Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Help</h4>
+                    </div>
+                    <div class="modal-body">
+                        <b>djProman</b> is a project management tool developed by weavebytes.<br><br>
+                                <b>Features</b><hr>
+                        <ol>
+
+                            <li>Each project will have tasks and workers to handle them.</li>
+                            <li>Each task can have several comments by worker.</li>
+                            <li>Comments will have title, description and screenshots.</li>
+                            <li>There is a UI to add/edit/manage tasks.</li>
+                            <li>There is a UI to add/edit/manage comments.</li>
+                        </ol>
+                        
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" 
+                            class="btn btn-default" data-dismiss="modal">
+                            Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Help Information Popup ends here -->
     </body>
 </html>
