@@ -128,8 +128,12 @@ def project(request, project_id):
     """
     get all tasks for given project
     """
+    form = AddTaskForm()
     project = Project.objects.get(id=project_id)
-    c = {'project': project, 'tasks': project.get_tasks()}
+    c = {'request': request, 
+            'form': form, 
+            'project': project, 
+            'tasks': project.get_tasks()}
     return render_to_response('tasks.html', c)
 
 @login_required
