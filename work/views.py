@@ -87,14 +87,6 @@ def progress(request):
     """
     return render_to_response('progress.html')
 
-@csrf_exempt
-@login_required
-def add_project(request):
-    """
-    show page for adding a project
-    """
-    return render_to_response('add_project.html', {'request':request})
-
 @login_required
 def tasks(request):
     """
