@@ -11,15 +11,90 @@
         {% block head %}{% endblock %}
     </head>
     <body bgcolor="#ccddcc">
+
+        <!-- Navbar starts here here -->
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">djProMan</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Project 1</a></li>
+                        <li><a href="#">Project 2</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Add Project</a></li>
+                    </ul>
+                    </li>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Issues<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Current Search</a></li>
+                        <li><a href="#">Search Issues</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><b>RECENT ISSUES</b></a></li>
+                        <li><a href="#">Issue 1</a></li>
+                        <li><a href="#">Issue 2</a></li>
+                        <li><a href="#">Issue 3</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><b>FILTERS</b></a></li>
+                        <li><a href="#">My Open Issues</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Something Todo</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Something more...</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="#">Create</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">HELP</a></li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+        </nav>
+        <!-- Navbar ends here here -->
         <div id="page-container">
 
             <ul>
-            <img class="img-circle" src={% static "images/djproman.png" %} width="90" height="90"></img>
-            {% if request and not request.user.is_anonymous %}
-            Welcome: <b> {{ request.user }}</b>
-            {% else %}
-            Welcome: <b>Guest</b>
-            {% endif %}
+                <img class="img-circle" src={% static "images/djproman.png" %} width="90" height="90"></img>
+                {% if request and not request.user.is_anonymous %}
+                Welcome: <b> {{ request.user }}</b>
+                {% else %}
+                Welcome: <b>Guest</b>
+                {% endif %}
                 <li class="btn btn-inverse"><a href="/">PROJECTS</a></li>
                 <li class="btn btn-inverse"><a href="/tasks/">TASKS</a></li>
                 <li class="btn btn-inverse"><a href="/progress/">PROGRESS</a></li>
@@ -58,7 +133,7 @@
                     </div>
                     <div class="modal-body">
                         <b>djProman</b> is a project management tool developed by weavebytes.<br><br>
-                                <b>Features</b><hr>
+                        <b>Features</b><hr>
                         <ol>
 
                             <li>Each project will have tasks and workers to handle them.</li>
@@ -67,7 +142,7 @@
                             <li>There is a UI to add/edit/manage tasks.</li>
                             <li>There is a UI to add/edit/manage comments.</li>
                         </ol>
-                        
+
 
                     </div>
                     <div class="modal-footer">
