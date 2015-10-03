@@ -13,13 +13,13 @@
     <body bgcolor="#ccddcc">
         <div id="page-container">
 
-            {% if request and not request.user.is_anonymous %}
-            Welcome: <b> {{ request.user }}</b> <br>
-            {% else %}
-            Welcome: <b>Guest</b> <br>
-            {% endif %}
-            <br>
             <ul>
+            <img class="img-circle" src={% static "images/djproman.png" %} width="90" height="90"></img>
+            {% if request and not request.user.is_anonymous %}
+            Welcome: <b> {{ request.user }}</b>
+            {% else %}
+            Welcome: <b>Guest</b>
+            {% endif %}
                 <li class="btn btn-inverse"><a href="/">PROJECTS</a></li>
                 <li class="btn btn-inverse"><a href="/tasks/">TASKS</a></li>
                 <li class="btn btn-inverse"><a href="/progress/">PROGRESS</a></li>
