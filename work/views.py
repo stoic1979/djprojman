@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from work.models import *
-from dashboard.forms import LoginForm
+from dashboard.forms import LoginForm, AddProjectForm
 from django.core.context_processors import csrf
 
 @login_required
@@ -16,11 +16,14 @@ def home(request):
     """
     home page view for the website
     """
+
+    form = AddProjectForm()
+
     projects = Project.objects.all()
     for project in projects:
         print project
 
-    c = {'projects': projects, 'request': request}
+    c = {'projects': projects, 'request': request, 'form': form}
     return render_to_response('index.html', c)
 
 def login_page(request):
