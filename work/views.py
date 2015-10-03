@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from work.models import *
-from dashboard.forms import LoginForm, AddProjectForm
+from dashboard.forms import LoginForm, AddProjectForm, AddTaskForm
 from django.core.context_processors import csrf
 
 @login_required
@@ -100,9 +100,9 @@ def tasks(request):
     """
     show page for adding a project
     """
-    # TODO
-    # pass task in dict to template !
-    return render_to_response('tasks.html', {'request':request})
+    form = AddTaskForm()
+    c = {'request': request, 'form': form}
+    return render_to_response('tasks.html', c)
 
 @csrf_exempt
 @login_required
