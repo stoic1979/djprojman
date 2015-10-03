@@ -11,3 +11,9 @@ class AddProjectForm(forms.Form):
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter shortname/alias for project...'}))
     description = forms.CharField(max_length=2048, 
             widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter project description here...'}))
+
+class AddTaskForm(forms.Form):
+    title = forms.CharField(max_length=128, 
+            widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter project title here...'}))
+    description = forms.CharField(max_length=2048, 
+            widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter project description here...'}))
