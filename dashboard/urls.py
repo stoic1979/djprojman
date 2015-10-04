@@ -29,4 +29,11 @@ urlpatterns = [
     url(r'^accounts/logout/$', 'work.views.logout_page', name='logout_page'),
     url(r'^accounts/login/$', 'work.views.login_page', name='login_page'),
     url(r'^progress/$', 'work.views.progress', name='progress'),
+
+    # 'registration.views.registration_form' view
+    url(r'register/$', 'registration.views.registration_form'),
+      
+    # Allow the URLs beginning with /captcha/ to be handled by
+    # the urls.py of captcha module from 'django-simple-captcha'
+    url(r'^captcha/', include('captcha.urls')),
 ]
