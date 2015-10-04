@@ -27,3 +27,17 @@ unit tests
 
 * Run tests as:-
  $ python manage.py test --keepdb
+
+setup instructions
+--------
+
+* simple captcha
+
+ - You must install following dependencies:-
+    apt-get -y install libz-dev libjpeg-dev libfreetype6-dev python-dev
+
+ - Then installing simple catcha with:-
+    pip install  django-simple-captcha
+
+ - For more details, follow simple captcha docs:-
+   http://django-simple-captcha.readthedocs.org/en/latest/usage.html
