@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 from .forms import RegistrationForm
 
@@ -12,10 +13,11 @@ def registration_form(request):
     # is_valid validates a form and returns True if it is valid and
     # False if it is invalid.
     if form.is_valid():
-      # The form is valid and you could save it to a database
-      # by creating a model object and populating the
-      # data from the form object, but here we are just
-      # rendering a success template page.
+      user = User.objects.create_user(
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password'],
+            email=form.cleaned_data['email']
+            )
       return render(request, "registration/success.html")
  
  # This means that the request is a GET request. So we need to
