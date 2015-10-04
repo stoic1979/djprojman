@@ -42,6 +42,7 @@ Main page to authenticate users.
 
             <!-- add body of popup here -->
             <div class="modal-body">
+
                 <p style="color:red"> {{ state }} </p>
                 <form method="post" action=".">{% csrf_token %}
                     <p>
@@ -64,7 +65,7 @@ Main page to authenticate users.
             <!-- end body of popup here -->
 
             <div class="modal-footer">
-                Powered By Weavebytes
+                    Dont have an account, <a class="btn btn-inverse" href="/register/">Register</a> now !
                 <button type="button" 
                     class="btn btn-default" data-dismiss="modal">
                     Close</button>
