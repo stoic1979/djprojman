@@ -5,7 +5,7 @@ Intents to be a simple quick tool for managing projects, tasks and team, most su
 Under R&D by weavebytes.
 
 
-features
+Features
 --------
 
 * Each project will have tasks and workers to handle them. 
@@ -15,20 +15,13 @@ features
 * There is a UI to add/edit/manage comments.
 
 
-todo
---------
-
-* Add RESTful APIs for mobile apps to use djproman.
-* Create template system to set desired theme.
-* Create graphs to show progress of projects.
-
-unit tests
+Unit Tests
 --------
 
 * Run tests as:-
  $ python manage.py test --keepdb
 
-setup instructions
+Setup Instructions
 --------
 
 * simple captcha
@@ -51,3 +44,16 @@ setup instructions
 
  - For more details, follow django rest framework docs:-
     http://www.django-rest-framework.org/
+
+
+Testing RESTful APIs
+--------
+
+* Get all projects
+ - http://localhost:8000/api/projects/
+
+ToDo
+--------
+
+* Create template system to set desired theme.
+* Create graphs to show progress of projects.
