@@ -37,7 +37,8 @@ setup instructions
     apt-get -y install libz-dev libjpeg-dev libfreetype6-dev python-dev
 
  - Then installing simple catcha with:-
-    pip install  django-simple-captcha
+    pip install Pillow
+    pip install django-simple-captcha
 
  - For more details, follow simple captcha docs:-
    http://django-simple-captcha.readthedocs.org/en/latest/usage.html
