@@ -22,3 +22,12 @@ class RestApiTestCase(TestCase):
         print r.text, r.status_code
         self.assertEqual(r.status_code, 200)
 
+    def test_gell_all_tasks(self):
+        """
+        test cases to get JSON for all tasks
+        """
+        url = "http://localhost:8000/api/tasks/"
+        r = requests.get(url)
+        print r.text, r.status_code
+        self.assertEqual(r.status_code, 200)
+
