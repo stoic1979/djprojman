@@ -39,9 +39,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'work',
+
+    # third party apps
     'captcha',
     'rest_framework',
+
+    # app for the project
+    'work',
+    'api',
     'registration'
 )
 
