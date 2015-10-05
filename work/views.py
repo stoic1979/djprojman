@@ -125,6 +125,7 @@ def project(request, project_id):
     c = {'request': request, 
             'form': form, 
             'project': project, 
+            'projects': Project.objects.all(),
             'tasks': project.get_tasks()}
     return render_to_response('tasks.html', c)
 
