@@ -117,3 +117,5 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_DIR, 'templates/static'),
 )
+
+from localsettings import *
