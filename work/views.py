@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
 from work.models import *
 from dashboard.forms import LoginForm, AddProjectForm, AddTaskForm
@@ -17,7 +18,7 @@ def home(request):
     home page view for the website
     """
     c = {'projects': Project.objects.all(), 'request': request, 'form': AddProjectForm()}
-    return render_to_response('index.html', c)
+    return render_to_response('index.html', c, context_instance=RequestContext(request))
 
 def login_page(request):
     """
