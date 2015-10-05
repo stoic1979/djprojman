@@ -40,3 +40,11 @@ class RestApiTestCase(TestCase):
         print r.text, r.status_code
         self.assertEqual(r.status_code, 200)
 
+    def test_get_task_detail(self):
+        """
+        test case to get task detail by primary key
+        """
+        url = "http://localhost:8000/api/tasks/1"
+        r = requests.get(url)
+        print r.text, r.status_code
+        self.assertEqual(r.status_code, 200)

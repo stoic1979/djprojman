@@ -44,4 +44,5 @@ urlpatterns = [
     url(r'api/projects/$', 'api.views.project_list'),
     url(r'api/projects/(?P<pk>[0-9]+)/$', 'api.views.project_detail'),
     url(r'api/tasks/$', 'api.views.task_list'),
+    url(r'api/tasks/(?P<pk>[0-9]+)/$', 'api.views.task_detail'),
 ]

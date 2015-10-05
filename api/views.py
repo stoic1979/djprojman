@@ -76,3 +76,30 @@ def task_list(request):
             serializer.save()
             return JSONResponse(serializer.data, status=201)
         return JSONResponse(serializer.errors, status=400)
+
+@csrf_exempt
+def task_detail(request, pk):
+    """
+    Retrieve, update or delete a code task.
+    """
+    try:
+        task = Task.objects.get(pk=pk)
+    except Task.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = TaskSerializer(task)
+        return JSONResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = TaskSerializer(task, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data)
+        return JSONResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        task.delete()
+        return HttpResponse(status=204)
+
