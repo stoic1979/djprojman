@@ -42,4 +42,5 @@ urlpatterns = [
 
     # url conf for apis
     url(r'api/projects/$', 'api.views.project_list'),
+    url(r'api/tasks/$', 'api.views.task_list'),
 ]
