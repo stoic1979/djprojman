@@ -13,7 +13,7 @@ class RestApiTestCase(TestCase):
     test cases for RESTful APIs
     """
 
-    def test_gell_all_projects(self):
+    def test_get_all_projects(self):
         """
         test cases to get JSON for all projects
         """
@@ -22,7 +22,7 @@ class RestApiTestCase(TestCase):
         print r.text, r.status_code
         self.assertEqual(r.status_code, 200)
 
-    def test_gell_project_detail(self):
+    def test_get_project_detail(self):
         """
         test case to get project detail by primary key
         """
@@ -31,7 +31,7 @@ class RestApiTestCase(TestCase):
         print r.text, r.status_code
         self.assertEqual(r.status_code, 200)
 
-    def test_gell_all_tasks(self):
+    def test_get_all_tasks(self):
         """
         test cases to get JSON for all tasks
         """
