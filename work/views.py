@@ -16,14 +16,7 @@ def home(request):
     """
     home page view for the website
     """
-
-    form = AddProjectForm()
-
-    projects = Project.objects.all()
-    for project in projects:
-        print project
-
-    c = {'projects': projects, 'request': request, 'form': form}
+    c = {'projects': Project.objects.all(), 'request': request, 'form': AddProjectForm()}
     return render_to_response('index.html', c)
 
 def login_page(request):
