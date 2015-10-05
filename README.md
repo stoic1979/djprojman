@@ -42,3 +42,12 @@ setup instructions
 
  - For more details, follow simple captcha docs:-
    http://django-simple-captcha.readthedocs.org/en/latest/usage.html
+
+* django rest framework
+
+ - pip install djangorestframework
+ - pip install markdown
+ - pip install django-filter
+
+ - For more details, follow django rest framework docs:-
+    http://www.django-rest-framework.org/

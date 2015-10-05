@@ -36,4 +36,7 @@ urlpatterns = [
     # Allow the URLs beginning with /captcha/ to be handled by
     # the urls.py of captcha module from 'django-simple-captcha'
     url(r'^captcha/', include('captcha.urls')),
+
+    # url conf for rest framework
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
