@@ -42,5 +42,6 @@ urlpatterns = [
 
     # url conf for apis
     url(r'api/projects/$', 'api.views.project_list'),
+    url(r'api/projects/(?P<pk>[0-9]+)/$', 'api.views.project_detail'),
     url(r'api/tasks/$', 'api.views.task_list'),
 ]

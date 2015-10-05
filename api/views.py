@@ -34,6 +34,32 @@ def project_list(request):
         return JSONResponse(serializer.errors, status=400)
 
 @csrf_exempt
+def project_detail(request, pk):
+    """
+    Retrieve, update or delete a code project.
+    """
+    try:
+        project = Project.objects.get(pk=pk)
+    except Project.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = ProjectSerializer(project)
+        return JSONResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = ProjectSerializer(project, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data)
+        return JSONResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        project.delete()
+        return HttpResponse(status=204)
+
+@csrf_exempt
 def task_list(request):
     """
     List all the tasks, or create a new task.
