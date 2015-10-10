@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', 'work.views.home', name='home'),
@@ -24,10 +25,13 @@ urlpatterns = [
     url(r'^tasks/$', 'work.views.tasks', name='tasks'),
     url(r'task_detail/(\d+)$', 'work.views.task_detail', name='task_detail'),
     url(r'^save_project/$', 'work.views.save_project', name='save_project'),
+
+    # auth URL confs
     url(r'^login/$', 'work.views.login_page', name='login_page'),
     url(r'^logout/$', 'work.views.logout_page', name='logout_page'),
     url(r'^accounts/logout/$', 'work.views.logout_page', name='logout_page'),
     url(r'^accounts/login/$', 'work.views.login_page', name='login_page'),
+
     url(r'^progress/$', 'work.views.progress', name='progress'),
 
     # 'registration.views.registration_form' view

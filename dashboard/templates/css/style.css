@@ -1,0 +1,36 @@
+#page-container {
+    width: 1200px;
+    margin: auto;
+    background: #ffffff;
+    padding: 10px;
+}
+
+
+#main-nav{
+    padding-top: 25px;
+    height: 90px;
+}
+
+
+#header{
+    background: white;
+    width: 960px;
+    margin: center;
+    height: 150px;
+}
+
+
+#content{
+    margin-top: 10px;
+    width: 960px;
+}
+
+
+#footer{
+    clear: both;
+    margin: auto;
+    background: #777799;
+    height: 60px;;
+    border-radius: 10px;
+    width: 1180px;
+}

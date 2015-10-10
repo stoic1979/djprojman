@@ -45,6 +45,22 @@ Setup Instructions
  - For more details, follow django rest framework docs:-
     http://www.django-rest-framework.org/
 
+* grappelli - for admin skinning
+
+ - pip install django-grappelli
+
+ - Open settings.py and add grappelli to your INSTALLED_APPS (before django.contrib.admin):
+
+    INSTALLED_APPS = (
+        'grappelli',
+        'django.contrib.admin',
+    )
+
+ - For more details, follow grappelli docs:-
+    http://django-grappelli.readthedocs.org/en/latest/quickstart.html#installation
+
+$ python manage.py collectstatic
+
 
 Testing RESTful APIs
 --------
