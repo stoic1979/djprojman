@@ -21,10 +21,15 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', 'work.views.home', name='home'),
+
+    # projects
     url(r'project/(\d+)$', 'work.views.project', name='project'),
-    url(r'^tasks/$', 'work.views.tasks', name='tasks'),
-    url(r'task_detail/(\d+)$', 'work.views.task_detail', name='task_detail'),
     url(r'^save_project/$', 'work.views.save_project', name='save_project'),
+
+    # tasks
+    url(r'^tasks/$', 'work.views.tasks', name='tasks'),
+    url(r'^save_task/$', 'work.views.save_task', name='save_task'),
+    url(r'task_detail/(\d+)$', 'work.views.task_detail', name='task_detail'),
 
     # auth URL confs
     url(r'^login/$', 'work.views.login_page', name='login_page'),
