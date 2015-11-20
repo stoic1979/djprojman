@@ -77,10 +77,10 @@ class Comment(models.Model):
     screenshot  = models.TextField(null=True, blank=True)
 	
     def __unicode__(self):
-	    """
-	    function returns unicode representaion of a comment
-	    """
-	    return self.title
+	"""
+	function returns unicode representaion of a comment
+	"""
+	return self.title
 
 
 class Stickynote(models.Model):
@@ -93,3 +93,9 @@ class Stickynote(models.Model):
     note       = models.CharField(max_length=128)
     done       = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+	"""
+	function returns unicode representaion of a sticky note
+	"""
+	return self.note
