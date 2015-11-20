@@ -82,3 +82,14 @@ class Comment(models.Model):
 	    """
 	    return self.title
 
+
+class Stickynote(models.Model):
+    """
+    user specific sticky note
+
+    Each user can have his/her own sticky notes :)
+    """
+    user       = models.ForeignKey(User)
+    note       = models.CharField(max_length=128)
+    done       = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
