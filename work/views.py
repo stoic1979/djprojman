@@ -79,7 +79,8 @@ def progress(request):
     """
     show progress page
     """
-    return render_to_response('progress.html')
+    c = {'projects': Project.objects.all(), 'request': request, 'form': AddProjectForm()}
+    return render_to_response('progress.html', c, context_instance=RequestContext(request))
 
 @login_required
 def tasks(request):
