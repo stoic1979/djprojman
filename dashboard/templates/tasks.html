@@ -15,6 +15,8 @@
     <tr class="info">
         <td><b>#</b></td>
         <td><b>Task</b></td>
+        <td><b>Type</b></td>
+        <td><b>Priority</b></td>
         <td><b>Start Date</b></td>
         <td><b>Worker</b></td>
     </tr>
@@ -22,6 +24,8 @@
     <tr>
         <td>{{ forloop.counter }}</td>
         <td><a href="/task_detail/{{ task.id }}">{{ task.title }}</a></td>
+        <td>{{ task.type }}</td>
+        <td>{{ task.priority }}</td>
         <td>{{ task.start_date }}</td>
         <td>{{ task.worker }}</td>
     </tr>
@@ -29,7 +33,9 @@
 </table>
 
 <br> <br> <br> <br> <br> <br> <br>
-<!-- !!!!!!!!!!!!!! ADD PROJECT BEGINS HERE !!!!!!!!!!!!!-->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!               ADD PROJECT BEGINS HERE            !!!!!!!!!!!!!!!!!!!!!!!-->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 <div class="modal fade" id="AddTaskModal" tabindex="-1" 
     role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
     <div class="modal-dialog">      
@@ -74,7 +80,9 @@
         </div>
     </div>
 </div>
-<!-- !!!!!!!!!!!!!! ADD PROJECT MODAL ENDS HERE !!!!!!!!!!!!!-->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!1!!!! ADD PROJECT MODAL ENDS HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
 {% endblock %}
 
