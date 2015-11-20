@@ -51,6 +51,7 @@
             <div class="modal-body">
                 <p style="color:red"> {{ state }} </p>
                 <form method="post" action="/save_task/">{% csrf_token %}
+                    <input type="hidden" name="project_id" value="{{ project.id }}"/>
 
                     <div class="form-group">
                         <label for="id_title">Title:</label>

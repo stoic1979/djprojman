@@ -131,3 +131,27 @@ def task_detail(request, task_id):
     task = Task.objects.get(id=task_id)
     c = {'task': task, 'comments': task.get_comments()}
     return render_to_response('task_detail.html', c)
+
+@csrf_exempt
+@login_required
+def save_task(request):
+    """
+    save task in db
+    """
+    try:
+        title       = request.POST['title']
+        description = request.POST["description"]
+        project_id  = request.POST["project_id"]
+
+        print "project_id=", project_id
+        # getting project for this task by project id
+        project = Project.objects.get(id=int(project_id))
+
+        # saving task
+        task = Task(project=project, title=title, description=description, worker=request.user)
+        task.save()
+    except:
+        traceback.print_exc()
+        return HttpResponse(" Failed To Save Task !")
+
+    return HttpResponseRedirect('/', {'request':request})
