@@ -154,4 +154,5 @@ def save_task(request):
         traceback.print_exc()
         return HttpResponse(" Failed To Save Task !")
 
-    return HttpResponseRedirect('/', {'request':request})
+    # redirecting to the project's page where all tasks etc is shown
+    return HttpResponseRedirect('/project/%s' % project_id, {'request':request})
