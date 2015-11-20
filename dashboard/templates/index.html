@@ -1,15 +1,15 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block head %}
 <title>DjProMan - Home</title>
 {% endblock %}
 
 {% block body %}
-<h4> PROJECT MANAGEMENT SYSTEM </h4><hr>
+<!--
+<a class="navbar-brand" href="/"><img class="img-circle" src={% static "images/djproman.png" %} width="90" height="90"></img><a>
+-->
 
-<section>
-<p>Projects Under Development</p>
-</section>
 <br><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AddProjectModal">Add Project</a><br><br>
 <table class="table" border="0" cellspacing="5" cellpadding="5" width="100%">
     <tr class="info">
