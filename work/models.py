@@ -36,12 +36,15 @@ class Task(models.Model):
     """
     task model for the company
     """
-    title       = models.CharField(max_length = 64)
+    title       = models.CharField(max_length=64)
+    type        = models.CharField(max_length=64, default='Task')
+    priority    = models.CharField(max_length=64, default='Major')
     description = models.TextField(null=True, blank=True)
     project     = models.ForeignKey(Project)
     start_date  = models.DateField(default=datetime.date.today)
     end_date    = models.DateField(null=True)
     worker      = models.ForeignKey(User, null=True)
+    hours_taken = models.PositiveIntegerField(default=0)
     completed   = models.BooleanField(default=False)
 	
     def __unicode__(self):
