@@ -16,7 +16,14 @@ def get_common_dict(request):
     """
     common params to be passed in the dict to all views/pages
     """
+
+    todos = None
+    try:
+        todos = Stickynote.objects.filter(user=request.user)
+    except:
+        pass
     c = {'projects': Project.objects.all(),
+            'todos': todos,
             'request': request,
             'frmAddProject': AddProjectForm(),
             'frmAddTask': AddTaskForm(),

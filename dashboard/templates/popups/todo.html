@@ -15,15 +15,31 @@
             </div>
             <div class="modal-body" style="max-height: 420px; overflow-y: auto;">
                 <form method="post" action="/save_todo/">{% csrf_token %}
-                    <b>My ToDo</b><br><br>
-                    <b>List</b><hr>
                     <div class="form-group">
                         <label for="id_note">Note:</label>
                         {{ frmAddTodo.note }}
                     </div>
                     <button class="btn btn-primary" type="submit">Save</button>
                 </form>
-                aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br>
+
+                <table class="table" border="0" cellspacing="5" cellpadding="5" width="100%">
+                    <tr class="info">
+                        <td><b>#</b></td>
+                        <td><b>Note</b></td>
+                        <td><b>Status</b></td>
+                        <td><b>Date</b></td>
+                        <td><b>Delete</b></td>
+                    </tr>
+                    {% for todo in todos %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ todo.note }}</td>
+                        <td>{{ todo.done }}</td>
+                        <td>{{ todo.created_on }}</td>
+                        <td> -- FIXME -- </td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
 
         </div>
