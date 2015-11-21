@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
 from work.models import *
-from dashboard.forms import LoginForm, AddProjectForm, AddTaskForm
+from dashboard.forms import LoginForm, AddProjectForm, AddTaskForm, AddTodoForm
 from django.core.context_processors import csrf
 
 @login_required
@@ -17,7 +17,7 @@ def home(request):
     """
     home page view for the website
     """
-    c = {'projects': Project.objects.all(), 'request': request, 'form': AddProjectForm()}
+    c = {'projects': Project.objects.all(), 'request': request, 'form': AddProjectForm(), 'frmAddTodo': AddTodoForm()}
     return render_to_response('index.html', c, context_instance=RequestContext(request))
 
 def login_page(request):
@@ -170,8 +170,8 @@ def save_todo(request):
         note = request.POST['note']
         done = False
 
-        todo = Todo(note=note, done=done, user=request.user)
-        todo.save()
+        snote = Stickynote(note=note, done=done, user=request.user)
+        snote.save()
     except:
         traceback.print_exc()
         return HttpResponse(" Failed To Save Todo !")
