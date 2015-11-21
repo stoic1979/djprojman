@@ -1,0 +1,51 @@
+<!-- !!!!!!!!!!!!!! LOGIN MODAL BEGINS HERE !!!!!!!!!!!!!-->
+<div class="modal fade" id="LoginModal" tabindex="-1" 
+    role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">      
+        <div class="modal-content">
+
+            <!-- add header of popup here -->
+            <div class="modal-header">
+                <button type="button" class="close" 
+                    data-dismiss="modal">
+                    <span aria-hidden="true">&times;
+                        </span><span class="sr-only">
+                        Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Log in</h4>
+                You must log in to access this page. If you think this message is wrong, <br>please contact your site administrators.
+            </div>
+            <!-- end header of popup here -->
+
+            <!-- add body of popup here -->
+            <div class="modal-body">
+
+                <p style="color:red"> {{ state }} </p>
+                <form method="post" action=".">{% csrf_token %}
+                    <p>
+                    <label for="id_username">Username:</label>
+                    {{ form.username }}
+                    </p>
+                    <p>
+                    <label for="id_password">Password:</label>
+                    {{ form.password }}
+                    </p>
+                    {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    {% else %}
+                    <input type="hidden" name="next" value="/" />
+                    {% endif %}
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </form>
+
+            </div>
+            <!-- end body of popup here -->
+
+            <div class="modal-footer">
+                    Dont have an account, <a class="btn btn-inverse" href="/register/">Register</a> now !
+                <button type="button" 
+                    class="btn btn-default" data-dismiss="modal">
+                    Close</button>
+            </div>
+        </div>
+    </div>
+</div>
