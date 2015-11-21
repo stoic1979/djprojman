@@ -30,6 +30,8 @@ def login_page(request):
     :return: django HttpResponse 
     """
 
+    print "--- login --"
+
     state = ""
     username = password = ''
     form = LoginForm()
@@ -157,3 +159,21 @@ def save_task(request):
 
     # redirecting to the project's page where all tasks etc is shown
     return HttpResponseRedirect('/project/%s' % project_id, {'request':request})
+
+@csrf_exempt
+@login_required
+def save_todo(request):
+    """
+    save user's todo
+    """
+    try:
+        note = request.POST['note']
+        done = False
+
+        todo = Todo(note=note, done=done, user=request.user)
+        todo.save()
+    except:
+        traceback.print_exc()
+        return HttpResponse(" Failed To Save Todo !")
+
+    return HttpResponseRedirect('/', {'request':request})

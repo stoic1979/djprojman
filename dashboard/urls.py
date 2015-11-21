@@ -31,6 +31,9 @@ urlpatterns = [
     url(r'^save_task/$', 'work.views.save_task', name='save_task'),
     url(r'task_detail/(\d+)$', 'work.views.task_detail', name='task_detail'),
 
+    # todo/stickynote
+    url(r'^save_todo/$', 'work.views.save_todo', name='save_todo'),
+
     # auth URL confs
     url(r'^login/$', 'work.views.login_page', name='login_page'),
     url(r'^logout/$', 'work.views.logout_page', name='logout_page'),
