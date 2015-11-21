@@ -13,10 +13,15 @@ class AddProjectForm(forms.Form):
             widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter project description here...'}))
 
 class AddTaskForm(forms.Form):
+    TASK_TYPES = (('Feature', 'Feature'), 
+            ('Bug', 'Bug'), 
+            ('Enhancement', 'Enhancement'))
+
     title = forms.CharField(max_length=128, 
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter task title here...'}))
     description = forms.CharField(max_length=2048, 
             widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter task description here...'}))
+    type = forms.ChoiceField(choices=TASK_TYPES, required=True, label='Type')
 
 class AddTodoForm(forms.Form):
     note = forms.CharField(max_length=128, 

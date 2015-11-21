@@ -151,13 +151,14 @@ def save_task(request):
         title       = request.POST['title']
         description = request.POST["description"]
         project_id  = request.POST["project_id"]
+        type        = request.POST["type"]
 
         print "project_id=", project_id
         # getting project for this task by project id
         project = Project.objects.get(id=int(project_id))
 
         # saving task
-        task = Task(project=project, title=title, description=description, worker=request.user)
+        task = Task(project=project, title=title, type=type, description=description, worker=request.user)
         task.save()
     except:
         traceback.print_exc()

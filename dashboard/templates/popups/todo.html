@@ -1,7 +1,7 @@
 
 <!-- Todo Information Popup starts here -->
 
-<div class="modal fade" id="TodoModal" tabindex="-1" role="dialog" aria-labelledby="todoModalLabel" aria-hidden="true">
+<div class="modal fade" id="TodoModal" tabindex="-1" role="dialog" aria-labelledby="todoModalLabel" aria-hidden="true" style="overflow-y: auto;">
     <div class="modal-dialog">      
         <div class="modal-content">
             <div class="modal-header">
@@ -13,7 +13,7 @@
                 <h4 class="modal-title" id="myModalLabel">
                     Todo List</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="max-height: 420px; overflow-y: auto;">
                 <form method="post" action="/save_todo/">{% csrf_token %}
                     <b>My ToDo</b><br><br>
                     <b>List</b><hr>
@@ -23,6 +23,7 @@
                     </div>
                     <button class="btn btn-primary" type="submit">Save</button>
                 </form>
+                aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br> aaa<br>
             </div>
 
         </div>
