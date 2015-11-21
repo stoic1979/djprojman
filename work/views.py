@@ -12,13 +12,23 @@ from work.models import *
 from dashboard.forms import LoginForm, AddProjectForm, AddTaskForm, AddTodoForm
 from django.core.context_processors import csrf
 
+def get_common_dict(request):
+    """
+    common params to be passed in the dict to all views/pages
+    """
+    c = {'projects': Project.objects.all(),
+            'request': request,
+            'frmAddProject': AddProjectForm(),
+            'frmAddTask': AddTaskForm(),
+            'frmAddTodo': AddTodoForm()}
+    return c
+
 @login_required
 def home(request):
     """
     home page view for the website
     """
-    c = {'projects': Project.objects.all(), 'request': request, 'form': AddProjectForm(), 'frmAddTodo': AddTodoForm()}
-    return render_to_response('index.html', c, context_instance=RequestContext(request))
+    return render_to_response('index.html', get_common_dict(request), context_instance=RequestContext(request))
 
 def login_page(request):
     """
@@ -81,17 +91,14 @@ def progress(request):
     """
     show progress page
     """
-    c = {'projects': Project.objects.all(), 'request': request, 'form': AddProjectForm()}
-    return render_to_response('progress.html', c, context_instance=RequestContext(request))
+    return render_to_response('progress.html', get_common_dict(request), context_instance=RequestContext(request))
 
 @login_required
 def tasks(request):
     """
-    show page for adding a project
+    show page for adding a task
     """
-    form = AddTaskForm()
-    c = {'request': request, 'form': form}
-    return render_to_response('tasks.html', c)
+    return render_to_response('tasks.html', get_common_dict(request))
 
 @csrf_exempt
 @login_required
@@ -110,20 +117,17 @@ def save_project(request):
         traceback.print_exc()
         return HttpResponse(" Failed To Save Project !")
 
-    return HttpResponseRedirect('/', {'request':request})
+    return HttpResponseRedirect('/', get_common_dict(request))
 
 @login_required
 def project(request, project_id):
     """
     get all tasks for given project
     """
-    form = AddTaskForm()
     project = Project.objects.get(id=project_id)
-    c = {'request': request, 
-            'form': form, 
-            'project': project, 
-            'projects': Project.objects.all(),
-            'tasks': project.get_tasks()}
+    c = get_common_dict(request)
+    d = {'project': project, 'tasks': project.get_tasks()}
+    c.update(d)
     return render_to_response('tasks.html', c)
 
 @login_required
@@ -132,7 +136,9 @@ def task_detail(request, task_id):
     show task details
     """
     task = Task.objects.get(id=task_id)
-    c = {'task': task, 'comments': task.get_comments()}
+    c = get_common_dict(request)
+    d = {'task': task, 'comments': task.get_comments()}
+    c.update(d)
     return render_to_response('task_detail.html', c)
 
 @csrf_exempt
@@ -158,7 +164,7 @@ def save_task(request):
         return HttpResponse(" Failed To Save Task !")
 
     # redirecting to the project's page where all tasks etc is shown
-    return HttpResponseRedirect('/project/%s' % project_id, {'request':request})
+    return HttpResponseRedirect('/project/%s' % project_id, get_common_dict(request))
 
 @csrf_exempt
 @login_required
@@ -176,4 +182,4 @@ def save_todo(request):
         traceback.print_exc()
         return HttpResponse(" Failed To Save Todo !")
 
-    return HttpResponseRedirect('/', {'request':request})
+    return HttpResponseRedirect('/', get_common_dict(request))
