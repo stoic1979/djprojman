@@ -191,3 +191,12 @@ def save_todo(request):
         return HttpResponse(" Failed To Save Todo !")
 
     return HttpResponseRedirect('/', get_common_dict(request))
+
+@login_required
+def del_todo(request, todo_id):
+    """
+    delete a todo by given id
+    """
+    todo = Stickynote.objects.get(id=todo_id)
+    todo.delete()
+    return HttpResponseRedirect('/')

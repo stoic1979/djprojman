@@ -33,6 +33,7 @@ urlpatterns = [
 
     # todo/stickynote
     url(r'^save_todo/$', 'work.views.save_todo', name='save_todo'),
+    url(r'del_todo/(\d+)$', 'work.views.del_todo', name='del_todo'),
 
     # auth URL confs
     url(r'^login/$', 'work.views.login_page', name='login_page'),

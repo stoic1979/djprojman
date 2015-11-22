@@ -1,4 +1,4 @@
-
+{% load staticfiles %}
 <!-- Todo Information Popup starts here -->
 
 <div class="modal fade" id="TodoModal" tabindex="-1" role="dialog" aria-labelledby="todoModalLabel" aria-hidden="true" style="overflow-y: auto;">
@@ -36,7 +36,9 @@
                         <td>{{ todo.note }}</td>
                         <td>{{ todo.done }}</td>
                         <td>{{ todo.created_on }}</td>
-                        <td> -- FIXME -- </td>
+                        <td> 
+                            <a href="/del_todo/{{ todo.id }}" ><img class="img-circle" src={% static "images/del.png" %} ></img></a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>
