@@ -11,7 +11,7 @@
                     </span><span class="sr-only">
                         Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Todo List</h4>
+                    {{ request.user}}'s Todo List</h4>
             </div>
             <div class="modal-body" style="max-height: 420px; overflow-y: auto;">
                 <form method="post" action="/save_todo/">{% csrf_token %}
@@ -42,11 +42,6 @@
                 </table>
             </div>
 
-        </div>
-        <div class="modal-footer">
-            <button type="button" 
-                    class="btn btn-default" data-dismiss="modal">
-                Close</button>
         </div>
     </div>
 </div>
