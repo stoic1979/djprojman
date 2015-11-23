@@ -72,7 +72,7 @@ class Comment(models.Model):
     title       = models.CharField(max_length = 64)
     description = models.TextField(null=True, blank=True)
     task        = models.ForeignKey(Task)
-    write_date  = models.DateField()
+    write_date  = models.DateField(default=datetime.date.today)
     worker      = models.ForeignKey(User, null=True)
     screenshot  = models.TextField(null=True, blank=True)
 	

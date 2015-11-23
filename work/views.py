@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
 from work.models import *
-from dashboard.forms import LoginForm, AddProjectForm, AddTaskForm, AddTodoForm
+from dashboard.forms import LoginForm, AddProjectForm, AddTaskForm, AddTodoForm, AddCommentForm
 from django.core.context_processors import csrf
 
 def get_common_dict(request):
@@ -27,6 +27,7 @@ def get_common_dict(request):
             'request': request,
             'frmAddProject': AddProjectForm(),
             'frmAddTask': AddTaskForm(),
+            'frmAddComment': AddCommentForm(),
             'frmAddTodo': AddTodoForm()}
     return c
 
@@ -151,28 +152,29 @@ def task_detail(request, task_id):
 @csrf_exempt
 @login_required
 def save_task(request):
-    """
-    save task in db
-    """
-    try:
-        title       = request.POST['title']
-        description = request.POST["description"]
-        project_id  = request.POST["project_id"]
-        type        = request.POST["type"]
+	"""
+	save task in db
+	"""
+	try:
+		title       = request.POST['title']
+		description = request.POST["description"]
+		project_id  = request.POST["project_id"]
+		type        = request.POST["type"]
+		priority	= request.POST["priority"]
 
-        print "project_id=", project_id
-        # getting project for this task by project id
-        project = Project.objects.get(id=int(project_id))
+		print "project_id=", project_id
+		# getting project for this task by project id
+		project = Project.objects.get(id=int(project_id))\
 
-        # saving task
-        task = Task(project=project, title=title, type=type, description=description, worker=request.user)
-        task.save()
-    except:
-        traceback.print_exc()
-        return HttpResponse(" Failed To Save Task !")
+		# saving task
+		task = Task(project=project, title=title, type=type, priority=priority, description=description, worker=request.user)
+		task.save()
+	except:
+		traceback.print_exc()
+		return HttpResponse(" Failed To Save Task !")
 
-    # redirecting to the project's page where all tasks etc is shown
-    return HttpResponseRedirect('/project/%s' % project_id, get_common_dict(request))
+	# redirecting to the project's page where all tasks etc is shown
+	return HttpResponseRedirect('/project/%s' % project_id, get_common_dict(request))
 
 @csrf_exempt
 @login_required
@@ -200,3 +202,33 @@ def del_todo(request, todo_id):
     todo = Stickynote.objects.get(id=todo_id)
     todo.delete()
     return HttpResponseRedirect('/')
+
+@csrf_exempt
+@login_required
+def save_comment(request):
+    """
+    save comment in db
+    """
+    try:
+	title       = request.POST['title']
+	description = request.POST["description"]
+        task_id     = request.POST['task_id']
+
+        print "task id=", task_id
+
+        task = None
+        try:
+            task = Task.objects.get(pk=task_id)
+        except:
+            #FIXME need to show error if task is not found
+            pass
+
+        print "task= ", task
+
+	comment = Comment(title=title, task=task, description=description)
+	comment.save()
+    except:
+	traceback.print_exc()
+	return HttpResponse(" Failed To Save Comment !")
+
+    return HttpResponseRedirect('/task_detail/%s' % task_id, get_common_dict(request))

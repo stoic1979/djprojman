@@ -13,16 +13,28 @@ class AddProjectForm(forms.Form):
             widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter project description here...'}))
 
 class AddTaskForm(forms.Form):
-    TASK_TYPES = (('Feature', 'Feature'), 
-            ('Bug', 'Bug'), 
-            ('Enhancement', 'Enhancement'))
+	TASK_TYPES = (('Feature', 'Feature'), 
+			('Bug', 'Bug'), 
+			('Enhancement', 'Enhancement'))
+	
+	TASK_PRIORITY = (('Low', 'Low'), 
+			('Medium', 'Medium'), 
+			('High', 'High'))
 
-    title = forms.CharField(max_length=128, 
+	title = forms.CharField(max_length=128, 
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter task title here...'}))
-    description = forms.CharField(max_length=2048, 
+	description = forms.CharField(max_length=2048, 
             widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter task description here...'}))
-    type = forms.ChoiceField(choices=TASK_TYPES, required=True, label='Type')
+	type = forms.ChoiceField(choices=TASK_TYPES, required=True, label='Type')
+	priority = forms.ChoiceField(choices=TASK_PRIORITY, required=True, label='Priority')
 
 class AddTodoForm(forms.Form):
     note = forms.CharField(max_length=128, 
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter note...'}))
+
+class AddCommentForm(forms.Form):
+	title = forms.CharField(max_length=128, 
+			widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter comment title here...'}))
+	description = forms.CharField(max_length=2048, 
+			widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter comment description here...'}))
+
