@@ -5,14 +5,16 @@
 {% endblock %}
 
 {% block body %}
-<h4>PROJECT: {{ project.title }} </h4><hr>
+<table width="100%">
+    <tr><td><b>PROJECT: {{ project.title }}</b></td>
+        <td align="right">Total tasks: {{ project.get_tasks.count }}</td>
+    </tr>
+<table>
+<hr>
 
 Description:<br>
 {{ project.description|safe }}
 
-<section>
-<p>Total tasks: {{ project.get_tasks.count }}</p>
-</section>
 <br><a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AddTaskModal">Add Task</a><br><br>
 <table class="table" border="0" cellspacing="5" cellpadding="5" width="100%">
     <tr class="info">
