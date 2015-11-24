@@ -7,6 +7,9 @@
 {% block body %}
 <h4>PROJECT: {{ project.title }} </h4><hr>
 
+Description:<br>
+{{ project.description|safe }}
+
 <section>
 <p>Total tasks: {{ project.get_tasks.count }}</p>
 </section>
