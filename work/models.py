@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 import datetime
 
+from tinymce.models import HTMLField
+
 #
 # A project has tasks, and a task is assigned to an worker
 # 
@@ -14,7 +16,7 @@ class Project(models.Model):
     """
     title        = models.CharField(max_length=64)
     shortname    = models.CharField(max_length=20, unique=True)
-    description  = models.CharField(max_length=1024)
+    description  = HTMLField()
     owner        = models.ForeignKey(User)
     start_date   = models.DateField(default=datetime.date.today)
     end_date     = models.DateField(null=True)
@@ -39,7 +41,7 @@ class Task(models.Model):
     title       = models.CharField(max_length=64)
     type        = models.CharField(max_length=64, default='Task')
     priority    = models.CharField(max_length=64, default='Major')
-    description = models.TextField(null=True, blank=True)
+    description = HTMLField()
     project     = models.ForeignKey(Project)
     start_date  = models.DateField(default=datetime.date.today)
     end_date    = models.DateField(null=True)
@@ -70,7 +72,7 @@ class Comment(models.Model):
         A the moment, adding only one screenshot per comment !
     """
     title       = models.CharField(max_length = 64)
-    description = models.TextField(null=True, blank=True)
+    description = HTMLField()
     task        = models.ForeignKey(Task)
     write_date  = models.DateField(default=datetime.date.today)
     worker      = models.ForeignKey(User, null=True)

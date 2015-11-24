@@ -1,4 +1,5 @@
 from django import forms
+from tinymce.widgets import TinyMCE
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=32)
@@ -9,8 +10,7 @@ class AddProjectForm(forms.Form):
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter project title here...'}))
     shortname = forms.CharField(max_length=32,  
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter shortname/alias for project...'}))
-    description = forms.CharField(max_length=2048, 
-            widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter project description here...'}))
+    description = forms.CharField(widget=TinyMCE(attrs={'width':'100%', 'cols': 80, 'rows': 80}, mce_attrs={'width': '100%'}))
 
 class AddTaskForm(forms.Form):
 	TASK_TYPES = (('Feature', 'Feature'), 
@@ -23,8 +23,7 @@ class AddTaskForm(forms.Form):
 
 	title = forms.CharField(max_length=128, 
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter task title here...'}))
-	description = forms.CharField(max_length=2048, 
-            widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter task description here...'}))
+        description = forms.CharField(widget=TinyMCE(attrs={'width':'100%', 'cols': 80, 'rows': 80}, mce_attrs={'width': '100%'}))
 	type = forms.ChoiceField(choices=TASK_TYPES, required=True, label='Type')
 	priority = forms.ChoiceField(choices=TASK_PRIORITY, required=True, label='Priority')
 
@@ -35,6 +34,4 @@ class AddTodoForm(forms.Form):
 class AddCommentForm(forms.Form):
 	title = forms.CharField(max_length=128, 
 			widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter comment title here...'}))
-	description = forms.CharField(max_length=2048, 
-			widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter comment description here...'}))
-
+        description = forms.CharField(widget=TinyMCE(attrs={'width':'100%', 'cols': 80, 'rows': 80}, mce_attrs={'width': '100%'}))

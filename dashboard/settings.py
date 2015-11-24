@@ -49,7 +49,8 @@ INSTALLED_APPS = (
     # app for the project
     'work',
     'api',
-    'registration'
+    'registration',
+    'tinymce'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -136,5 +137,17 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'templates')
 print "STATIC_ROOT: ", STATIC_ROOT
+
+
+"""
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+"""
 
 from localsettings import *

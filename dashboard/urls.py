@@ -61,4 +61,6 @@ urlpatterns = [
 	
     #comment
     url(r'^save_comment/$', 'work.views.save_comment', name='save_comment'),
+
+    url(r'^tinymce/', include('tinymce.urls')),
 ]
