@@ -225,7 +225,7 @@ def save_comment(request):
 
         print "task= ", task
 
-	comment = Comment(title=title, task=task, description=description)
+	comment = Comment(title=title, task=task, description=description, worker=request.user)
 	comment.save()
     except:
 	traceback.print_exc()
