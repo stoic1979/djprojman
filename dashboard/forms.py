@@ -17,9 +17,11 @@ class AddTaskForm(forms.Form):
 			('Bug', 'Bug'), 
 			('Enhancement', 'Enhancement'))
 	
-	TASK_PRIORITY = (('Low', 'Low'), 
-			('Medium', 'Medium'), 
-			('High', 'High'))
+	TASK_PRIORITY = (('Highest', 'Highest'), 
+                        ('High', 'High'), 
+                        ('Medium', 'Medium'), 
+			('Low', 'Low'), 
+			('Lowest', 'Lowest'))
 
 	title = forms.CharField(max_length=128, 
             widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter task title here...'}))
