@@ -1,13 +1,12 @@
 import datetime
 from django.test import TestCase
-from django.contrib.auth.models import User
 
 from work.models import Project
 
 today_date = datetime.date.today()
 today_str  = str(today_date)
 
-class ProjectTestCase(TestCase):
+class ProjectTestCase(BaseTestCase):
 
     user    = None
     project = None
