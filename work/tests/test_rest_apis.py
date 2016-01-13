@@ -8,6 +8,7 @@ from rest_framework.authtoken.models import Token
 
 from base import BaseTestCase
 
+
 class RestApiTestCase(BaseTestCase):
     """ Test cases for RESTful APIs """
 
@@ -18,7 +19,7 @@ class RestApiTestCase(BaseTestCase):
         super(RestApiTestCase, self).setUp()
 
     def get_api_list(self):
-        """ 
+        """
         convenience function to get list of all api
         """
         c = Client()
@@ -26,14 +27,35 @@ class RestApiTestCase(BaseTestCase):
         print "API List:", r.content
 
     def test_get_projects(self):
-        """ 
-        Test case with a valid user and gets token succesfully
+        """
+        Qucik test case to get projects
         """
 
         r = self.client.get("/api/projects/")
-        print "[test_rest_apis] test_get_projects() :: resp code =", r.status_code
 
         # asserting HTTP OK
         self.assertEquals(r.status_code, 200)
 
-        print r.content
+    def test_update_project(self):
+        """
+        Test case to update a project with REST API
+        """
+
+        new_title = "Django Test Project"
+        short_name = "DTP"
+        path = "/api/projects/%d/" % self.project.id
+        data = {"title": new_title, "shortname": short_name,
+                "description": "This is some test project",
+                "owner": self.user.id}
+
+        r = self.client.put(
+                path, json.dumps(data), content_type='application/json')
+
+        # asserting HTTP OK
+        self.assertEquals(r.status_code, 200)
+
+        rdata = json.loads(r.content)
+
+        # asserting title and shortname updates
+        self.assertEquals(rdata["title"], new_title)
+        self.assertEquals(rdata["shortname"], short_name)
